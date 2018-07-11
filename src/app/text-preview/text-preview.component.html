@@ -1,0 +1,14 @@
+<h2>Text Preview</h2>
+
+<p>An ngClass example.</p>
+
+<label>
+  Type a Message
+  <textarea [(ngModel)]="userMessage" placeholder="Life is like a box of chocolates"></textarea>
+</label>
+
+<h3 [ngClass]="classState">{{userMessage}}</h3>
+
+<button (click)="toggleSize()">Change Size</button>
+<button (click)="toggleFont()">Change Font</button>
+<button (click)="toggleColor()">Change Color</button>

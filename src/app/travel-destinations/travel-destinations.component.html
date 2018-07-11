@@ -1,0 +1,34 @@
+<h2>Travel Destinations</h2>
+
+<p>An *ngFor and ngSwitch example.</p>
+
+<!-- How do you create a dropdown out of the ARRAY of destinations? -->
+
+<select [(ngModel)]="selectedDest">
+  <option value="">Select a destination...</option>
+  <option *ngFor="let oneDest of destinations" [value]="oneDest._id">
+    {{oneDest.name}}
+  </option>
+</select>
+
+<div *ngIf="selectedDest">
+  <p>You selected <b>{{selectedDest}}</b>.</p>
+
+  <div [ngSwitch]="selectedDest">
+    <p *ngSwitchCase="'pr'">🇵🇷 ¿Queh la que hay?</p>
+    <p *ngSwitchCase="'tz'">🇹🇿 Zanzzzzzzibar!</p>
+    <p *ngSwitchCase="'cn'">🇨🇳 Mama huhu</p>
+    <p *ngSwitchDefault>👋🏽 Safe flight! 🛫</p>
+  </div>
+</div>
+
+
+<ul>
+  <li *ngFor="let oneDest of destinations, let pos = index, let isEven = even">
+    <h3>{{oneDest.name}}</h3>
+    <p>ID: {{oneDest._id}}</p>
+    <p>Position: {{pos}}</p>
+    <p>Even? {{isEven}}</p>
+    <img [src]="oneDest.imageUrl" />
+  </li>
+</ul>

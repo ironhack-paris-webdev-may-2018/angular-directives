@@ -1,0 +1,25 @@
+<h2>Favorite Number</h2>
+
+<p>*ngIf example</p>
+
+<label>
+  What's your favorite number?
+  <input [(ngModel)]="userNumber" type="number" placeholder="42" />
+</label>
+
+<div *ngIf="userNumber || userNumber === 0">
+  <h3>Your number: {{userNumber}}.</h3>
+
+  <!-- RECOMMENDED -->
+  <p *ngIf="userNumber % 5 === 0">Great number! Nice and round. 🤩</p>
+  <p *ngIf="userNumber % 5 !== 0">I hate your number. 😤</p>
+
+  <!-- ELSE version -->
+  <p *ngIf="userNumber % 5 === 0; else hateItParagraph">
+    Great number! Nice and round (else version). 🤩
+  </p>
+  <ng-template #hateItParagraph>
+      <!-- # makes a template variable (available only in the HTML) -->
+    <p>I hate your number (else version). 😤</p>
+  </ng-template>
+</div>
